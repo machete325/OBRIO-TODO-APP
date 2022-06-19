@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
-import { taskSelector } from '../../core/task/task.selectors';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SaveIcon from '@mui/icons-material/Save';
 import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
+import { taskSelector } from '../../core/task/task.selectors';
 import { MainButton } from '../../assets/Home_styles';
 import { TaskActionCreator } from '../../core/task/task.action';
 
 import s from './Task.module.css';
 
 function Task() {
-  const { id } = useParams();
+  const { taskId } = useParams();
   const dispatch = useDispatch();
   const tasksData = useSelector(taskSelector);
-  const [data, setData] = useState(tasksData.filter((task) => task.id == id));
+  const [data, setData] = useState(tasksData.filter((task) => task.id == taskId));
   const [editTask, setEditTask] = useState({
     id: null,
     isChange: false,
@@ -24,7 +24,7 @@ function Task() {
   });
 
   useEffect(() => {
-    setData(tasksData.filter((task) => task.id == id));
+    setData(tasksData.filter((task) => task.id == taskId));
   }, [tasksData]);
 
   const handleClickEdit = (e: any) => {

@@ -117,9 +117,9 @@ function Home() {
         </div>
       </div>
       <div className={s.body}>
-        {data.map((task, index) => (
+        {data.map((task) => (
           <div
-            key={index}
+            key={task.id}
             id={`${task.id}`}
             title='task_container'
             className={s.task_container}

@@ -14,9 +14,9 @@ const taskReducer = (state = initialState, action: TaskAction) => {
       const { name, isDone } = action.payload;
       const id = Math.floor(Math.random() * 1000000) + 1;
       const newTask = {
-        id: id,
-        name: name,
-        isDone: isDone,
+        id,
+        name,
+        isDone,
       };
       return { ...state, data: [...state.data, newTask] };
     }
@@ -25,18 +25,14 @@ const taskReducer = (state = initialState, action: TaskAction) => {
       const data = state.data.map((elem) => ({ ...elem }));
       data.find((task) => {
         if (task.id == id) {
-          task.name = name;
+          return (task.name = name);
         }
       });
-      return { ...state, data: data };
+      return { ...state, data };
     }
     case TaskEnum.DELETE_TASK: {
       const { id } = action.payload;
-      const filteredData = state.data.filter((elem) => {
-        if (id != elem.id) {
-          return elem;
-        }
-      });
+      const filteredData = state.data.filter((elem) => elem.id != id);
       return { ...state, data: filteredData };
     }
     case TaskEnum.CHECKED_TASK: {
@@ -44,10 +40,10 @@ const taskReducer = (state = initialState, action: TaskAction) => {
       const data = state.data.map((elem) => ({ ...elem }));
       data.find((task) => {
         if (task.id == id) {
-          task.isDone = isDone;
+          return (task.isDone = isDone);
         }
       });
-      return { ...state, data: data };
+      return { ...state, data };
     }
     case TaskEnum.DELETE_ALL_TASKS: {
       return { ...state, data: [] };

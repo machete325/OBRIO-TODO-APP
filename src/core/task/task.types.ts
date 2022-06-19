@@ -13,7 +13,7 @@ export interface Task {
   isDone: boolean;
 }
 
-export interface createTask {
+export interface CreateTask {
   type: TaskEnum.CREATE_TASK;
   payload: {
     name: string;
@@ -21,7 +21,7 @@ export interface createTask {
   };
 }
 
-export interface updateTask {
+export interface UpdateTask {
   type: TaskEnum.UPDATE_TASK;
   payload: {
     id: number | string;
@@ -29,14 +29,14 @@ export interface updateTask {
   };
 }
 
-export interface deleteTask {
+export interface DeleteTask {
   type: TaskEnum.DELETE_TASK;
   payload: {
     id: number | string;
   };
 }
 
-export interface checkedTask {
+export interface CheckedTask {
   type: TaskEnum.CHECKED_TASK;
   payload: {
     id: number | string;
@@ -44,11 +44,11 @@ export interface checkedTask {
   };
 }
 
-export interface deleteAllTasks {
+export interface DeleteAllTasks {
   type: TaskEnum.DELETE_ALL_TASKS;
 }
 
-export interface deleteDoneTasks {
+export interface DeleteDoneTasks {
   type: TaskEnum.DELETE_DONE_TASKS;
 }
 
@@ -59,9 +59,9 @@ export interface TaskElements {
 export type TaskState = TaskElements;
 
 export type TaskAction =
-  | createTask
-  | updateTask
-  | deleteTask
-  | checkedTask
-  | deleteAllTasks
-  | deleteDoneTasks;
+  | CreateTask
+  | UpdateTask
+  | DeleteTask
+  | CheckedTask
+  | DeleteAllTasks
+  | DeleteDoneTasks;

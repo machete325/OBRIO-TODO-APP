@@ -1,15 +1,15 @@
 import {
   TaskEnum,
-  createTask,
-  deleteTask,
-  updateTask,
-  checkedTask,
-  deleteAllTasks,
-  deleteDoneTasks,
+  CreateTask,
+  DeleteTask,
+  UpdateTask,
+  CheckedTask,
+  DeleteAllTasks,
+  DeleteDoneTasks,
 } from './task.types';
 
 export const TaskActionCreator = {
-  createTask: (name: string): createTask => {
+  createTask: (name: string): CreateTask => {
     const newTask = {
       name,
       isDone: false,
@@ -19,31 +19,31 @@ export const TaskActionCreator = {
       payload: newTask,
     };
   },
-  updateTask: (id: number | string, name: string): updateTask => {
+  updateTask: (id: number | string, name: string): UpdateTask => {
     return {
       type: TaskEnum.UPDATE_TASK,
       payload: { id, name },
     };
   },
-  deleteTask: (id: number | string): deleteTask => {
+  deleteTask: (id: number | string): DeleteTask => {
     return {
       type: TaskEnum.DELETE_TASK,
       payload: { id },
     };
   },
-  checkedTask: (id: number | string, isDone: boolean): checkedTask => {
+  checkedTask: (id: number | string, isDone: boolean): CheckedTask => {
     return {
       type: TaskEnum.CHECKED_TASK,
       payload: { id, isDone },
     };
   },
 
-  deleteAllTasks: (): deleteAllTasks => {
+  deleteAllTasks: (): DeleteAllTasks => {
     return {
       type: TaskEnum.DELETE_ALL_TASKS,
     };
   },
-  deleteDoneTasks: (): deleteDoneTasks => {
+  deleteDoneTasks: (): DeleteDoneTasks => {
     return {
       type: TaskEnum.DELETE_DONE_TASKS,
     };
