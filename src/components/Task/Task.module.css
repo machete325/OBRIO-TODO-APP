@@ -1,0 +1,52 @@
+.wrapper {
+  margin-top: 40px;
+  width: 1000px;
+  box-sizing: border-box;
+}
+
+.task_input {
+  font-size: 20px;
+  font-family: 'roboto';
+  height: 30px;
+  width: 800px;
+  border: 2px solid rgb(46 193 193);
+  border-radius: 5px;
+  outline: none;
+}
+
+.task_input:active {
+  border: 2px solid rgb(46 193 193);
+  border-radius: 5px;
+  outline: none;
+}
+
+.task_container {
+  margin-bottom: 10px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid rgb(164 189 189 / 49%);
+}
+
+.task_name {
+  padding-left: 20px;
+  font-size: 20px;
+  font-family: 'roboto';
+}
+
+.task_name_done {
+  padding-left: 20px;
+  font-size: 20px;
+  font-family: 'roboto';
+  text-decoration: line-through;
+}
+
+.button_container {
+  display: flex;
+  justify-content: center;
+}
+
+.button_container a {
+  text-decoration: none;
+}
